@@ -11,7 +11,7 @@ class SourcererCC(fileName: String, private val statsDirName: String) : CloneDet
                 var fileName = ""
                 for (line in it.readLines()) {
                     if (line.startsWith("f")) {
-                        fileName = extractFileName(line.split(",")[2])
+                        fileName = extractFileName(line.split(",")[2].run { substring(0, this.length - 1) })
                         continue
                     }
 
